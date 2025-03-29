@@ -1,0 +1,26 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useState } from "react";
+import Navbar from "./navbar";
+import Personal from "./personal";
+import { TaskProvider } from "./taskcontest";
+
+function App() {
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
+  return (
+    <TaskProvider>
+      <Router>
+        <Navbar toggleSidebar={toggleSidebar} showSidebar={showSidebar} />
+        <Routes>
+          <Route path="/personal" element={<Personal showSidebar={showSidebar} />} />
+        </Routes>
+      </Router>
+    </TaskProvider>
+  );
+}
+
+export default App;
