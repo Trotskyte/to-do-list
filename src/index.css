@@ -4,6 +4,10 @@
   font-style: normal;
   font-weight: normal;
 }
+html,
+body {
+  touch-action: manipulation; /* Prevents double-tap zoom but allows pinch-to-zoom */
+}
 
 /* General styles */
 * {
@@ -22,12 +26,13 @@
 }
 
 /* Adjust content when sidebar is open */
-.sidebar-open .main-content {
+.sidebar-open {
   margin-left: 250px;
+  transition: margin-left 0.3s ease-in-out;
 }
 
 /* Adjust content when sidebar is closed */
-.sidebar-closed .main-content {
+.sidebar-closed {
   margin-left: 0;
 }
 
@@ -42,8 +47,13 @@
     transform: translateX(0);
   }
 
-  /* Ensure content takes full width when sidebar is hidden */
-  .sidebar-closed .main-content {
+  .sidebar-open {
+    margin-left: 0px;
+    transition: margin-left 0.3s ease-in-out;
+  }
+
+  /* Adjust content when sidebar is closed */
+  .sidebar-closed {
     margin-left: 0;
   }
 

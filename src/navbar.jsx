@@ -22,16 +22,24 @@ function Navbar({ toggleSidebar, showSidebar }) {
         <nav>
           <ul>
             <li>
-              <Link to="/projects">Projects</Link>
+              <Link to="/projects" onClick={toggleSidebar}>
+                Projects
+              </Link>
             </li>
             <li>
-              <Link to="/personal">Personal</Link>
+              <Link to="/personal" onClick={toggleSidebar}>
+                Personal
+              </Link>
             </li>
             <li>
-              <Link to="/upcoming">Upcoming</Link>
+              <Link to="/upcoming" onClick={toggleSidebar}>
+                Upcoming
+              </Link>
             </li>
             <li>
-              <Link to="/completed">Completed</Link>
+              <Link to="/completed" onClick={toggleSidebar}>
+                Completed
+              </Link>
             </li>
           </ul>
         </nav>
