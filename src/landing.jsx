@@ -45,7 +45,9 @@ function Landing() {
               intuitif dan fitur yang praktis, TaskSify dirancang untuk meningkatkan produktivitas
               Anda tanpa kerumitan.
             </h3>
-            <button>Coba Sekarang</button>
+            <button className="button-landing" onClick={() => navigate("/personal")}>
+              Coba Sekarang
+            </button>
           </div>
           <div className="container-home">
             <img src={heroImg} alt="hero-image" />
