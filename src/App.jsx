@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "./navbar";
 import Personal from "./personal";
@@ -15,12 +15,12 @@ function App() {
   return (
     <TaskProvider>
       <Router>
-        {location.pathname !== "/landing" && (
+        {location.pathname !== "/" && (
           <Navbar toggleSidebar={toggleSidebar} showSidebar={showSidebar} />
         )}
 
         <Routes>
-          <Route path="/landing" element={<Landing />} />
+          <Route path="/" element={<Landing />} />
           <Route
             path="/personal"
             key={window.location.pathname}
