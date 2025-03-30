@@ -3,6 +3,7 @@ import { useState } from "react";
 import Navbar from "./navbar";
 import Personal from "./personal";
 import { TaskProvider } from "./taskcontest";
+import Landing from "./landing";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -14,9 +15,17 @@ function App() {
   return (
     <TaskProvider>
       <Router>
-        <Navbar toggleSidebar={toggleSidebar} showSidebar={showSidebar} />
+        {location.pathname !== "/landing" && (
+          <Navbar toggleSidebar={toggleSidebar} showSidebar={showSidebar} />
+        )}
+
         <Routes>
-          <Route path="/personal" element={<Personal showSidebar={showSidebar} />} />
+          <Route path="/landing" element={<Landing />} />
+          <Route
+            path="/personal"
+            key={window.location.pathname}
+            element={<Personal showSidebar={showSidebar} />}
+          />
         </Routes>
       </Router>
     </TaskProvider>
